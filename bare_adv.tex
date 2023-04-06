@@ -494,12 +494,12 @@ pdfsubject={Typesetting},%<!CHANGE!
 pdfauthor={Michael D. Shell},%<!CHANGE!
 pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
              template}}%<^!CHANGE!
-%\ifCLASSINFOpdf
-%\usepackage[\MYhyperrefoptions,pdftex]{hyperref}
-%\else
-%\usepackage[\MYhyperrefoptions,breaklinks=true,dvips]{hyperref}
-%\usepackage{breakurl}
-%\fi
+\ifCLASSINFOpdf
+\usepackage[\MYhyperrefoptions,pdftex]{hyperref}
+\else
+\usepackage[\MYhyperrefoptions,breaklinks=true,dvips]{hyperref}
+\usepackage{breakurl}
+\fi
 % One significant drawback of using hyperref under DVI output is that the
 % LaTeX compiler cannot break URLs across lines or pages as can be done
 % under pdfLaTeX's PDF output via the hyperref pdftex driver. This is
@@ -875,7 +875,7 @@ Computer Society, IEEE, IEEEtran, journal, \LaTeX, paper, Double descent, CNN, h
 % you can choose not to have a title for an appendix
 % if you want by leaving the argument blank
 \section{Code}
-
+All code, graphs and models can be found in the github repository \href{https://github.com/Rafizqi64/IEEE-Final-Project-Double-Descent}{here}.
 
 \section{Accuracy and Loss Curves}
 See next page.
