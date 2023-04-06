@@ -1,0 +1,24 @@
+\subsection{Dataset}
+The Patch-CAMELYON dataset was employed for this study, which is a publicly available dataset containing over 327,000 histopathology images. These images are used for the automated detection and classification of metastatic breast cancer in lymph node tissues. Each 96x96 pixel color image represents a tissue sample from a histopathology slide of a patient, labeled as either positive or negative for the presence of metastatic cancer.
+
+\subsection{Model Development}
+A custom Convolutional Neural Network (CNN)-based approach was developed for the analysis of histopathology images, employing TensorFlow as the primary machine learning framework. CNNs are specialized deep learning models that excel at image recognition tasks, as they are capable of automatically learning spatial hierarchies of features from the input images. This is achieved through the application of convolutional layers that scan the input data, preserving spatial information and detecting local patterns.
+
+The model was designed to classify each histopathology image into one of two categories: positive or negative, based on the presence or absence of metastatic cancer. The choice of using a CNN for this task is motivated by its proven success in various image recognition problems, including medical image analysis.
+
+The custom architecture of the model consists of four convolutional layers followed by three fully connected (dense) layers. The model employs batch normalization and max-pooling after each convolutional layer and uses dropout layers between the dense layers. The activation function used in the convolutional and dense layers is ReLU, except for the final dense layer, which uses a sigmoid activation function for binary classification.
+
+
+\subsection{Exploring the Effect of Double Descent}
+The number of filters and dense layers in the CNN model is systematically varied to explore the effect of double descent on the model's performance. Specifically, the \texttt{get\_model} function is modified to accept varying numbers of filters and dense layers. This led to creating multiple model architectures with different levels of complexity by adjusting the parameters such as \texttt{first\_filters}, \texttt{second\_filters}, \texttt{third\_filters}, and \texttt{fourth\_filters} for the convolutional layers, and the number of neurons in the dense layers. The most complex model capable of double descent and training on the laptop GPU was then used as an origin point to build future simplified models. This was done by removing a dense layer for each iteration of the model until there was only one dense layer left. To introduce even more simplicity into the model creating a broader vision into double descent, the same procedure was executed however the model now had one less convolutional layer.
+
+\subsection{Optimization and Loss Function}
+To ensure a fair comparison between the different model architectures, the same optimization algorithm (Adam optimizer) with a learning rate of 0.001 is used, and the same binary crossentropy loss function.
+
+\subsection{Training Procedure}
+The training procedure was kept consistent across all model architectures. The same set of callbacks is used, including \texttt{ModelCheckpoint}, \texttt{TensorBoard}, and \texttt{ReduceLROnPlateau}. These callbacks helped to monitor the model's progress, save the best weights, and adjust the learning rate during training. The performance of each model was evaluated using the same training and validation dataset provided by the Patch-CAMELYON dataset.
+
+\subsection{Performance Analysis}
+An in-depth examination of the relationship between model complexity and the double descent phenomenon was conducted by systematically recording and comparing the performance of various models with differing complexities. This comprehensive analysis aimed to elucidate the impact of model complexity on the double descent phenomenon within the context of medical image analysis using Convolutional Neural Networks (CNNs).
+
+This investigation led to the development of a CNN model that demonstrated the double descent phenomenon from scratch, offering valuable insights into the effects of dense layer and filter complexity on the occurrence of double descent. Through a meticulous analysis of the model's performance, this study contributes to the understanding of the double descent phenomenon and its practical implications in the realm of medical image analysis, ultimately paving the way for more robust and effective automated image analysis tools in clinical practice.

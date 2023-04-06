@@ -1,0 +1,39 @@
+\begin{lstlisting}[language=Python, caption=Model 2]
+def get_model(kernel_size=(3,3), pool_size=(2,2), first_filters=64, second_filters=128, third_filters=256, fourth_filters=1024):
+    
+    '''
+    Structure of the complex model. Adam is used as an optimizer to adjust the 
+    learning rate during training, aiding the SGD when it is stuck.
+    ''' 
+    
+    model = Sequential()    
+    
+    model.add(Conv2D(first_filters, kernel_size, activation='relu', padding='same', input_shape=(IMAGE_SIZE, IMAGE_SIZE, 3)))
+    model.add(BatchNormalization())
+    model.add(MaxPool2D(pool_size=pool_size))
+    
+    model.add(Conv2D(second_filters, kernel_size, activation='relu', padding='same'))
+    model.add(BatchNormalization())
+    model.add(MaxPool2D(pool_size=pool_size))
+    
+    model.add(Conv2D(third_filters, kernel_size, activation='relu', padding='same'))
+    model.add(BatchNormalization())
+    model.add(MaxPool2D(pool_size=pool_size))
+    
+    model.add(Conv2D(fourth_filters, kernel_size, activation='relu', padding='same'))
+    model.add(BatchNormalization())
+    model.add(MaxPool2D(pool_size=pool_size))
+    
+    model.add(Flatten())
+    # model.add(Dense(1024, activation='relu'))
+    # model.add(Dropout(0.5))
+    model.add(Dense(512, activation='relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(256, activation='relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(1, activation='sigmoid'))
+    
+    model.compile(tf.keras.optimizers.Adam(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy'])
+    
+    return model
+\end{lstlisting}
