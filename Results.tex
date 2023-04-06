@@ -1,5 +1,5 @@
 \subsection{AUC Scores}
-Individual accuracy and loss curves for all 6 models can be found in Appendix C. The models were prepared using the preparation code from (\cite{Veto8p361-project-imaging}) and uploaded to Kaggle to infer on the test set. The scores indicate the area under the ROC curve, or AUC. The private scores have been chosen due to the fact that those scores are calculated with about 80\% of the test data and therefore represent a better efficiency in the model.
+Individual accuracy and loss curves for all 6 models can be found in Appendix C. The models were prepared using the preparation code from (\cite{Veto8p361-project-imaging}) and uploaded to Kaggle to infer the test set. The scores indicate the area under the ROC curve or AUC. The private scores have been chosen due to the fact that those scores are calculated with about 80\% of the test data and therefore represent a better efficiency in the model.
 \begin{table}[h]
 \centering
 \begin{tabular}[width=0.7\textwidth]{|c|c|c|c|c|}
@@ -30,5 +30,5 @@ Individual accuracy and loss curves for all 6 models can be found in Appendix C.
     \end{minipage}
 \end{figure}
 
-\subsection{Loss and Accuracy Curves}
-The performance during machine learning has been summarized in graph \ref{Lossgraph} and \ref{ACgraph}, and use the data found in \ref{ACtable}. These show a comparison of the models with 4 CN layers and the models with 3 CN layers in decreasing order of amount of dense layers. Model 2 (4 CN, 3 dense) which had the most prevalent double descent occurrence, had a jump in AUC score compared to model 1 and 3. Only outperformed by models 5 and 6. In the training data, there seems to be a non linear increase in validation loss compared to train loss for each model \ref{Lossgraph} whilst there is a clear relation between training and validation accuracy that remains consistent in every model \ref{ACgraph}.
+\subsection{Loss and Accuracy}
+The performance during machine learning has been summarized in graph \ref{Lossgraph} and \ref{ACgraph}, and use the data found in \ref{ACtable}. These show a comparison of the models with 4 CN layers and the models with 3 CN layers in decreasing order of amount of dense layers. Model 2 (4 CN, 3 dense) which had the most prevalent double descent occurrence, had a jump in AUC score compared to models 1 and 3. Only outperformed by models 5 and 6. In the training data, there seems to be a non-linear increase in validation loss compared to train loss for each model \ref{Lossgraph} whilst there is a clear relation between training and validation accuracy that remains consistent in every model \ref{ACgraph}.
